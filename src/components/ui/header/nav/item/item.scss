@@ -1,0 +1,6 @@
+.nav__nav-item.nav__nav-item_active {
+  @apply text-orange;
+  .nav__underline {
+    @apply bg-orange;
+  }
+}
