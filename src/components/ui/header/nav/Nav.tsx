@@ -3,6 +3,7 @@ import cn from 'classnames';
 
 type Props = {
   className: string
+  onClick?: () => void
 }
 
 const items = [
@@ -15,13 +16,21 @@ const items = [
     link: 'aboutUs'
   },
   {
-    name: 'Contact',
-    link: 'contact'
+    name: 'Contact us',
+    link: 'contactUs'
+  },
+  {
+    name: 'Blog',
+    link: 'blog'
+  },
+  {
+    name: 'Careers',
+    link: 'careers'
   },
 ];
 
-export const Nav: React.FC<Props> = ({ className }) => {
-  const Items = items.map((i, index) => <Item {...i} key={index} />)
+export const Nav: React.FC<Props> = ({ className, onClick }) => {
+  const Items = items.map((i, index) => <Item onClick={onClick} {...i} key={index} />)
 
   return <nav className={cn('flex title gap-x-6 lg:gap-x-9 xl:gap-x-12', className)}>
     {Items}

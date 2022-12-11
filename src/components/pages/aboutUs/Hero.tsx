@@ -9,6 +9,6 @@ export const Hero: React.FC = () => {
     heroImg={hero}
     decor
   >
-    <Button>Corporate Fact Sheet</Button>
+    <Button xsmWFit>Corporate Fact Sheet</Button>
   </HeroBase>
 };

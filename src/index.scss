@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer base {
   html, body, #root {
     height: 100%;
@@ -15,11 +17,6 @@
   }
   body {
     overflow-x: hidden;
-  }
-
-  h2 {
-    font-weight: 700;
-    font-size: 40px;
   }
 
   h4 {
@@ -62,7 +59,7 @@
 
 @layer components {
   h1 {
-    @apply text-5xl font-bold text-darkBlue sm:text-6xl lg:text-7xl
+    @apply text-5xl font-bold text-darkBlue sm:text-6xl lg:text-7xl;
   }
   h5 {
     @apply text-4xl text-orange font-semibold sm:text-3xl md:text-4xl;
@@ -72,6 +69,9 @@
   }
   h3 {
     @apply text-2xl;
+  }
+  h2 {
+    @apply leading-tight font-bold text-[28px] sm:text-3xl md:text-4xl lg:text-[40px];
   }
   .componentsMargin {
     @apply mt-12 sm:mt-16 md:mt-20 lg:mt-24 xl:mt-28;

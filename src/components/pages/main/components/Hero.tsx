@@ -9,7 +9,7 @@ export const Hero: React.FC = () => {
     heroImg={hero}
   >
     <div className='flexCol gap-y-2 sm:flex-row sm:items-center sm:gap-x-5'>
-      <Button className='bg-orange' arrow>Try for free</Button>
+      <Button className='bg-orange' arrow xsmWFit>Try for free</Button>
       <p className='title2 text-orange'>* No credit card required</p>
     </div>
   </HeroBase>

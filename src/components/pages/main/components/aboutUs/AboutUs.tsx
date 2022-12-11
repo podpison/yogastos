@@ -15,7 +15,7 @@ export const AboutUs: React.FC = () => {
       <div className="lg:my-auto">
         <h2 className="text-darkBlue leading-tight">Global leader in Design & Development</h2>
         <p className="mt-4 text-lg text-justify sm:text-left">The company`s comprehensive security portfolio includes leading endpoint protection and a number of specialized security solutions and services to fight sophisticated and evolving digital threats. Over 400 million users are protected by Yogi technologies and we help 250,000 corporate clients protect what matters most to them.</p>
-        <Button className="bg-orange mt-6" arrow>Learn more</Button>
+        <Button className="bg-orange mt-6" arrow xsmWFit>Learn more</Button>
       </div>
       <div className="grid grid-cols-1 gap-4 w-full ml-auto sm:grid-cols-2 sm:gap-y-8 xl:gap-10">
         <img className="w-full ml-auto sm:w-auto" src={img1} alt='man is working' />

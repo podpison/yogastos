@@ -16,9 +16,17 @@ export type ReviewsItemType = {
   user: string
 }
 
+export type NewsItemType = {
+  img: string
+  heading: string
+  description: string
+  createdAt: number
+}
+
 const initialState = {
   prices: [] as PriceItemType[],
-  reviews: [] as ReviewsItemType[]
+  reviews: [] as ReviewsItemType[],
+  news: [] as NewsItemType[]
 };
 
 export type StateKeysType = keyof typeof initialState
@@ -33,6 +41,7 @@ const setStaticItems = createAction<SetStaticItemsType>('static/setItems');
 export const staticReducer = createReducer(initialState, builder => {
   builder.addCase(setStaticItems, (state, action) => {
     type KeyType = typeof action.payload.key;
+
     return {
       ...state,
       [action.payload.key]: action.payload.items as typeof initialState[KeyType]
@@ -43,5 +52,10 @@ export const staticReducer = createReducer(initialState, builder => {
 
 export const getStaticItems = createAsyncThunk('static/getItems', async (collection: StateKeysType, thunkAPI) => {
   let items = await itemsAPI.get(collection);
+
+  if (collection === 'news') {
+    items = items.map(i => ({ ...i, createdAt: i.createdAt.seconds }))
+  }
+
   thunkAPI.dispatch(setStaticItems({ items, key: collection }));
 });

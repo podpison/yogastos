@@ -12,7 +12,7 @@ export const ChooseBestSolution: React.FC = () => {
       <div className="flexCol gap-y-5 sm:gap-y-8 lg:gap-y-12">
         <div className="bg-grey w-2/5 h-0.5 mt-5 sm:mt-8 lg:mt-12" />
         <p className="text1 max-lg:text-justify">Don`t worry, we can help match you to your perfect brand & product solution in just 30 seconds.</p>
-        <Button className="">Help Me Choose</Button>
+        <Button className="" xsmWFit>Help Me Choose</Button>
       </div>
       <img src={img1} alt='we`re helping to find the best solution' />
     </div>

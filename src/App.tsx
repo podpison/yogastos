@@ -8,6 +8,9 @@ import { useStaticItems } from './hooks/useStaticItems';
 import { PricingPage } from './components/pages/pricing/PricingPage';
 import { NotFoundPage } from './components/pages/notFound/NotFoundPage';
 import { AboutUsPage } from './components/pages/aboutUs/AboutUsPage';
+import { ContactUsPage } from './components/pages/contactUs/ContactUsPage';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   useStaticItems('prices');
@@ -19,9 +22,11 @@ function App() {
         <Route path='/' element={<MainPage />} />
         <Route path='/pricing' element={<PricingPage />} />
         <Route path='/aboutUs' element={<AboutUsPage />} />
+        <Route path='/contactUs' element={<ContactUsPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
       <Footer />
+      <ToastContainer position='bottom-right' limit={1} />
     </div>
   )
 }
