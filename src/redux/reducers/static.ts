@@ -16,7 +16,7 @@ export type ReviewsItemType = {
   user: string
 }
 
-export type NewsItemType = {
+export type InformationCardType = {
   img: string
   heading: string
   description: string
@@ -26,7 +26,7 @@ export type NewsItemType = {
 const initialState = {
   prices: [] as PriceItemType[],
   reviews: [] as ReviewsItemType[],
-  news: [] as NewsItemType[]
+  news: [] as InformationCardType[]
 };
 
 export type StateKeysType = keyof typeof initialState

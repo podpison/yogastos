@@ -9,9 +9,10 @@ type Props = {
   disabled?: boolean
   xsmWFit?: boolean
   type?: React.ButtonHTMLAttributes<HTMLButtonElement>["type"]
+  onClick?: () => void
 }
 
-export const Button: React.FC<Props> = ({ children, className, isDarkBlue, arrow, disabled, xsmWFit, type }) => {
+export const Button: React.FC<Props> = ({ children, className, isDarkBlue, arrow, disabled, xsmWFit, type, onClick }) => {
   let classes = cn('w-full flex items-center rounded-2xl transition-colors py-4 px-12 justify-center lg:py-6',
     xsmWFit && 'xsm:w-fit'
   ) + ' ';
@@ -22,7 +23,7 @@ export const Button: React.FC<Props> = ({ children, className, isDarkBlue, arrow
     classes = classes + 'bg-orange hover:bg-orangeHover'
   }
 
-  return <button className={cn(classes, className)} disabled={disabled} type={type}>
+  return <button className={cn(classes, className)} disabled={disabled} type={type} onClick={onClick}>
     {children}
     {arrow && <span><img className='w-[20px] ml-1' src={arrowRight} alt='arrow right' /></span>}
   </button>

@@ -29,3 +29,9 @@ export const customersAPI = {
     return !!docRef;
   }
 }
+
+export const collectionsAPI = {
+  add: async (data: any) => {
+    await addDoc(collection(fs, "customers"), data);
+  }
+}

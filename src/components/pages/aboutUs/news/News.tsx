@@ -2,13 +2,14 @@ import { useSelector } from "react-redux";
 import { useStaticItems } from "../../../../hooks/useStaticItems";
 import { selectNewsItems } from "../../../../redux/selectors";
 import { FullBg } from "../../../ui/FullBg";
-import { Item } from "./Item";
+import { InformationCard } from "../../../ui/informationCard/InformationCard";
+import './item.scss';
 
 export const News: React.FC = () => {
   useStaticItems('news');
 
   let items = [...useSelector(selectNewsItems)].sort((a, b) => a.createdAt - b.createdAt); //date sort
-  let Items = items.map((i, index) => <Item {...i} key={index} />);
+  let Items = items.map((i, index) => <InformationCard className="news__item" {...i} key={index} />);
 
   return <section className='relative mt-10 pt-7 pb-14 sm:mt-15 sm:pt-10 md:pb-16 lg:mt-20 lg:pt-14 lg:pb-20 xl:pb-28'>
     <FullBg />
