@@ -1,5 +1,6 @@
 import { InformationCardType } from '../../../redux/reducers/static';
 import cn from 'classnames';
+import { formatDate } from '../../../helpers/formatDate';
 
 type Props = {
   className?: string
@@ -9,11 +10,7 @@ type Props = {
 const gap = 'gap-2 sm:gap-3 sm:p-4 lg:gap-4'
 
 export const InformationCard: React.FC<Props> = ({ img, heading, description, createdAt, className, children }) => {
-  let dateToShow = new Date(createdAt * 1000).toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric'
-  })
+  let dateToShow = formatDate(createdAt)
 
   return <div
     className={cn(`flexCol shadow-pinkShadow flex-1 h-full p-3 bg-white text-darkBlue rounded-2xl ${gap}`,

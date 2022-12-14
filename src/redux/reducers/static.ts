@@ -23,6 +23,16 @@ export type InformationCardType = {
   createdAt: number
 }
 
+export type BlogItemContentType = string | {
+  text: string
+  src: string
+  position: string
+}
+
+export type BlogItemType = {
+  content: BlogItemContentType[]
+} & InformationCardType
+
 const initialState = {
   prices: [] as PriceItemType[],
   reviews: [] as ReviewsItemType[],

@@ -12,7 +12,7 @@ import { ContactUsPage } from './components/pages/contactUs/ContactUsPage';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { BlogPage } from './components/pages/blog/BlogPage';
-import { BlogPageItemContent } from './components/pages/blog/BlogPageItemContent';
+import { BlogPageItem } from './components/pages/blog/blogPageItem/BlogPageItem';
 
 function App() {
   useStaticItems('prices');
@@ -26,7 +26,7 @@ function App() {
         <Route path='/aboutUs' element={<AboutUsPage />} />
         <Route path='/contactUs' element={<ContactUsPage />} />
         <Route path='/blog' element={<BlogPage />} />
-        <Route path='/blog/:bid' element={<BlogPageItemContent />} />
+        <Route path='/blog/:bid' element={<BlogPageItem />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
       <Footer />
