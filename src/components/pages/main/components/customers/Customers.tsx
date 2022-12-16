@@ -78,7 +78,7 @@ export const Customers: React.FC = () => {
   })
 
   return <section className="componentsMargin">
-    <h4 className="text-justify sm:text-center">Thousands of teams worldwide are using Hugi</h4>
+    <p className="text-justify sm:text-center">Thousands of teams worldwide are using Hugi</p>
     <Slider className="slider mt-5 sm:mt-7 md:mt-12" {...sliderSettings}>
       {Items}
     </Slider>

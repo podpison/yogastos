@@ -5,11 +5,14 @@ import { formatDate } from '../../../helpers/formatDate';
 type Props = {
   className?: string
   children?: React.ReactNode
-} & InformationCardType
+  isBigHeading?: boolean
+  description?: string
+  isChildrenToBottom?: boolean
+} & Omit<InformationCardType, 'description'>
 
 const gap = 'gap-2 sm:gap-3 sm:p-4 lg:gap-4'
 
-export const InformationCard: React.FC<Props> = ({ img, heading, description, createdAt, className, children }) => {
+export const InformationCard: React.FC<Props> = ({ img, heading, description, createdAt, className, children, isBigHeading, isChildrenToBottom }) => {
   let dateToShow = formatDate(createdAt)
 
   return <div
@@ -19,10 +22,11 @@ export const InformationCard: React.FC<Props> = ({ img, heading, description, cr
   >
     <img className="w-full h-max rounded-lg" src={img} alt='news' />
     <div className={`${gap} h-full grid grid-rows-[max-content_1fr_max-content]`}>
-      <h6 className="">{heading}</h6>
-      <p className="text1 line-clamp-5">{description}</p>
-      {children}
+      {isBigHeading ? <h4 className="text-start line-clamp-2">{heading}</h4> : <h6 className="text-start line-clamp-2">{heading}</h6>}
+      {description && <p className="text1 line-clamp-5 text-start">{description}</p>}
+      {!isChildrenToBottom && children}
       <time className="block mt-auto text-grey text-sm sm:text-base">{dateToShow}</time>
+      {isChildrenToBottom && children}
     </div>
   </div>
 };

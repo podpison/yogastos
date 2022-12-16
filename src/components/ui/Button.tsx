@@ -18,7 +18,7 @@ export const Button: React.FC<Props> = ({ children, className, isDarkBlue, arrow
   ) + ' ';
 
   if (isDarkBlue) {
-    classes = classes + 'bg-darkBlue text-white'
+    classes = classes + 'bg-darkBlue text-white hover:bg-darkBlue2'
   } else {
     classes = classes + 'bg-orange hover:bg-orangeHover'
   }

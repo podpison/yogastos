@@ -31,7 +31,11 @@ export const customersAPI = {
 }
 
 export const collectionsAPI = {
-  add: async (data: any) => {
-    await addDoc(collection(fs, "customers"), data);
+  add: async (data: Array<object>) => {
+    for (let item of data) {
+      //@ts-ignore
+      let a = await addDoc(collection(fs, "blog"), item);
+      console.log(a)
+    }
   }
 }

@@ -21,6 +21,7 @@ export type InformationCardType = {
   heading: string
   description: string
   createdAt: number
+  id: number
 }
 
 export type BlogItemContentType = string | {
@@ -33,10 +34,31 @@ export type BlogItemType = {
   content: BlogItemContentType[]
 } & InformationCardType
 
+export type CareerItemPreviewType = {
+  jobDescription: string;
+  responsibilities: string;
+  requirements: string;
+  goodToHave: string;
+  perks: string;
+}
+
+export type CareerItemType = {
+  id: number;
+  name: string;
+  img: string;
+  createdAt: number;
+  description: string;
+  responsibilities: string[];
+  requirements: string[];
+  preview: CareerItemPreviewType
+}
+
 const initialState = {
   prices: [] as PriceItemType[],
   reviews: [] as ReviewsItemType[],
-  news: [] as InformationCardType[]
+  news: [] as InformationCardType[],
+  blog: [] as BlogItemType[],
+  career: [] as CareerItemType[],
 };
 
 export type StateKeysType = keyof typeof initialState

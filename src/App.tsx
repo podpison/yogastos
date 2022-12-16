@@ -12,10 +12,12 @@ import { ContactUsPage } from './components/pages/contactUs/ContactUsPage';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { BlogPage } from './components/pages/blog/BlogPage';
-import { BlogPageItem } from './components/pages/blog/blogPageItem/BlogPageItem';
+import { BlogPageItem } from './components/pages/blog/BlogPageItem';
+import { CareersPage } from './components/pages/careers/CareersPage';
 
 function App() {
   useStaticItems('prices');
+  useStaticItems('blog');
 
   return (
     <div className='container flexCol h-full px-1 xl:max-w-7xl text-grey transition-colors tracking-widest'>
@@ -27,6 +29,7 @@ function App() {
         <Route path='/contactUs' element={<ContactUsPage />} />
         <Route path='/blog' element={<BlogPage />} />
         <Route path='/blog/:bid' element={<BlogPageItem />} />
+        <Route path='/careers' element={<CareersPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
       <Footer />
