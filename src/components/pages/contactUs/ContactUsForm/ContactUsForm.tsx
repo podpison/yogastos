@@ -6,16 +6,29 @@ import { Input } from './Input';
 import { customersAPI } from '../../../../api';
 import { toast } from 'react-toastify';
 import { FullBg } from '../../../ui/FullBg';
+import { useLocation, useSearchParams } from 'react-router-dom';
+import { useMemo } from 'react';
 
 let schema = yup.object().shape({
   email: yup.string().email().required('Required'),
   howCanWeHelpYou: yup.string().required('Required').max(1500, 'Слишком длинное сообщение'),
 });
 
-const initialValues = { email: '', howCanWeHelpYou: '' }
-export type ContactUsFormValuesType = typeof initialValues
+export type ContactUsFormValuesType = {
+  email: string
+  howCanWeHelpYou: string
+}
 
 export const ContactUsForm: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  let vacancyName = searchParams.get('name');
+  let initialValues = useMemo(() => {
+    return {
+      email: '',
+      howCanWeHelpYou: vacancyName ? `Hello! I'd like to apply to the ${vacancyName} vacancy. My skills are...` : ''
+    }
+  }, [vacancyName])
+
   return <section className='relative pt-8 pb-7 sm:pt-10 sm:pb-9 md:pt-12 md:pb-11 lg:pt-14 lg:pb-13 xl:pt-16 xl:pb-14'>
     <FullBg />
     <div className='grid grid-cols-1 gap-y-8 p-2 shadow-pinkShadow bg-white rounded-2xl justify-between items-center lg:grid-cols-[55%_40%] xl:grid-cols-[49%_40%] sm:p-3 md:p-4 lg:p-5'>

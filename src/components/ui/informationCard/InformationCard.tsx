@@ -8,17 +8,19 @@ type Props = {
   isBigHeading?: boolean
   description?: string
   isChildrenToBottom?: boolean
+  style?: React.CSSProperties
 } & Omit<InformationCardType, 'description'>
 
 const gap = 'gap-2 sm:gap-3 sm:p-4 lg:gap-4'
 
-export const InformationCard: React.FC<Props> = ({ img, heading, description, createdAt, className, children, isBigHeading, isChildrenToBottom }) => {
+export const InformationCard: React.FC<Props> = ({ img, heading, description, createdAt, className, children, isBigHeading, isChildrenToBottom, style }) => {
   let dateToShow = formatDate(createdAt)
 
   return <div
     className={cn(`flexCol shadow-pinkShadow flex-1 h-full p-3 bg-white text-darkBlue rounded-2xl ${gap}`,
       className
     )}
+    style={style}
   >
     <img className="w-full h-max rounded-lg" src={img} alt='news' />
     <div className={`${gap} h-full grid grid-rows-[max-content_1fr_max-content]`}>

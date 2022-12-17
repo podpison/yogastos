@@ -35,21 +35,26 @@ export type BlogItemType = {
 } & InformationCardType
 
 export type CareerItemPreviewType = {
-  jobDescription: string;
-  responsibilities: string;
-  requirements: string;
-  goodToHave: string;
-  perks: string;
+  jobDescription: string
+  responsibilities: string
+  requirements: string
+  goodToHave: string
+  perks: string
+  img: string
+}
+
+export type CareerItemContentType = {
+  heading: string
+  items: string[]
 }
 
 export type CareerItemType = {
   id: number;
-  name: string;
+  heading: string;
   img: string;
   createdAt: number;
   description: string;
-  responsibilities: string[];
-  requirements: string[];
+  content: CareerItemContentType[]
   preview: CareerItemPreviewType
 }
 

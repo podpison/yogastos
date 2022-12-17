@@ -14,10 +14,12 @@ import { ToastContainer } from 'react-toastify';
 import { BlogPage } from './components/pages/blog/BlogPage';
 import { BlogPageItem } from './components/pages/blog/BlogPageItem';
 import { CareersPage } from './components/pages/careers/CareersPage';
+import { CareersItemPage } from './components/pages/careers/careersItemPage/CareersItemPage';
 
 function App() {
   useStaticItems('prices');
   useStaticItems('blog');
+  useStaticItems('career');
 
   return (
     <div className='container flexCol h-full px-1 xl:max-w-7xl text-grey transition-colors tracking-widest'>
@@ -28,8 +30,9 @@ function App() {
         <Route path='/aboutUs' element={<AboutUsPage />} />
         <Route path='/contactUs' element={<ContactUsPage />} />
         <Route path='/blog' element={<BlogPage />} />
-        <Route path='/blog/:bid' element={<BlogPageItem />} />
+        <Route path='/blog/:id' element={<BlogPageItem />} />
         <Route path='/careers' element={<CareersPage />} />
+        <Route path='/careers/:id' element={<CareersItemPage />} />
         <Route path='*' element={<NotFoundPage />} />
       </Routes>
       <Footer />

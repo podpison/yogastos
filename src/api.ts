@@ -3,13 +3,13 @@ import { addDoc, collection, collection as fbCollection, getDocs, getFirestore }
 import { ContactUsFormValuesType } from "./components/pages/contactUs/ContactUsForm/ContactUsForm";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCC8ghX839IYCGpQXnvkmLatlFFMpL6mQE",
-  authDomain: "yogastos.firebaseapp.com",
-  projectId: "yogastos",
-  storageBucket: "yogastos.appspot.com",
-  messagingSenderId: "78654155477",
-  appId: "1:78654155477:web:256c7699c93a92dc41d05c",
-  measurementId: "G-BJ84EZGG2K"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 const app = initializeApp(firebaseConfig);
@@ -34,7 +34,7 @@ export const collectionsAPI = {
   add: async (data: Array<object>) => {
     for (let item of data) {
       //@ts-ignore
-      let a = await addDoc(collection(fs, "blog"), item);
+      let a = await addDoc(collection(fs, "career"), item);
       console.log(a)
     }
   }

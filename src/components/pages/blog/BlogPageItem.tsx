@@ -8,6 +8,8 @@ import { formatDate } from './../../../helpers/formatDate';
 import { InformationPageBase } from './../../ui/informationPageBase/InformationPageBase';
 import arrowLeft from './../../../assets/img/icons8-arrowLeft.png';
 import { selectBlogItems } from "../../../redux/selectors";
+import { ArrowBack } from "../../ui/ArrowBack";
+import { InformationItemPageBase } from "../../ui/InformationItemPageBase";
 
 const isContentItemString = (i: BlogItemContentType): i is string => {
   return typeof i === 'string';
@@ -16,10 +18,10 @@ const isContentItemString = (i: BlogItemContentType): i is string => {
 const textImgClasses = 'rounded-2xl w-full bg-no-repeat bg-[length:100%] min-h-[200px] sm:min-h-[350px] lg:min-h-full'
 
 export const BlogPageItem: React.FC = () => {
-  let { bid } = useParams();
+  let { id } = useParams();
   let items = useSelector(selectBlogItems)
 
-  let currentItem = items.find(i => i.id === Number(bid));
+  let currentItem = items.find(i => i.id === Number(id));
   let dateToShow = formatDate(currentItem?.createdAt)
   let content = currentItem?.content.map((i, index) => {
     if (isContentItemString(i)) {
@@ -33,17 +35,6 @@ export const BlogPageItem: React.FC = () => {
     }
   })
 
-  useEffect(() => {
-    setTimeout(() => {
-      document.querySelector('body')?.scroll({
-        top: 0,
-        behavior: 'smooth'
-      })
-    }, 20)
-  }, [])
-
-  if (!currentItem) return <NotFoundPage />
-
   return <InformationPageBase
     heading="Yogi Blog Post"
     headingDescription="Shop, stream, bank and browse the web design & dev. by an industry-leader for all your devices."
@@ -51,16 +42,12 @@ export const BlogPageItem: React.FC = () => {
     hero={currentItem?.img}
     recentItems={items}
   >
-    <div className="">
-      <Link className="text1 flex items-center gap-x-2 cursor-pointer w-fit transition-colors border-b-2 border-transparent hover:border-darkBlue" to='/blog'>
-        <img src={arrowLeft} alt='arrow left' />
-        <p className="">Go Back</p>
-      </Link>
-      <time className="text1 block mt-4 sm:mt-7 md:mt-9">{dateToShow}</time>
-      <h4 className='mt-4'>{currentItem?.heading}</h4>
-      <div className="flexCol gap-y-7 mt-6 sm:mt-10 lg:mt-12">
-        {content}
-      </div>
-    </div>
+    <InformationItemPageBase
+      to="/blog"
+      dateToShow={dateToShow}
+      heading={currentItem?.heading}
+    >
+      {content}
+    </InformationItemPageBase>
   </InformationPageBase>
 };
