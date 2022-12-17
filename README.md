@@ -1,2 +1,1 @@
-# yogastos
- 
+# https://yogastos.vercel.app/
