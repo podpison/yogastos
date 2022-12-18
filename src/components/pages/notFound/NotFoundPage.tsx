@@ -1,7 +1,10 @@
 import { Button } from "../../ui/Button";
 import { Link } from 'react-router-dom';
+import { useScrollTop } from "../../../hooks/useScrollTop";
 
 export const NotFoundPage: React.FC = () => {
+  useScrollTop();
+
   return <main>
     <section className="flexCol mt-5 gap-y-8 h-full justify-center items-center sm:gap-y-10">
       <h1 className="max-[350px]:whitespace-nowrap">Not Found :(</h1>

@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectPriceItems } from '../../../redux/selectors';
 import { FullBg } from '../FullBg';
 import cn from 'classnames';
+import { Skeleton } from '../Skeleton';
 
 type Props = {
   className: string
@@ -20,7 +21,7 @@ export const Prices: React.FC<Props> = ({ className }) => {
       <p className="textJustify text1 mt-2 sm:mt-4 lg:mt-6">Shop, stream, bank and browse the web design & dev. by an industry-leader for all your devices.</p>
     </div>
     <div className='mainPageGridContainer'>
-      {Cards}
+      <Skeleton items={Cards} />
     </div>
   </section>
 };

@@ -1,3 +1,4 @@
+import { useScrollTop } from "../../../hooks/useScrollTop";
 import { Prices } from "../../ui/prices/Prices";
 import { AboutUs } from "./components/aboutUs/AboutUs";
 import { Customers } from "./components/customers/Customers";
@@ -5,6 +6,8 @@ import { Hero } from "./components/Hero";
 import { Reviews } from "./components/reviews/Reviews";
 
 export const MainPage: React.FC = () => {
+  useScrollTop();
+
   return <main>
     <Hero />
     <Customers />

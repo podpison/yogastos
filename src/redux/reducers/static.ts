@@ -2,6 +2,11 @@ import { createReducer, createAction, createAsyncThunk } from "@reduxjs/toolkit"
 import { DocumentData } from "firebase/firestore";
 import { itemsAPI } from "../../api";
 
+export type CustomerType = {
+  src: string
+  link: string
+}
+
 export type PriceItemType = {
   price: string
   name: string
@@ -49,16 +54,17 @@ export type CareerItemContentType = {
 }
 
 export type CareerItemType = {
-  id: number;
-  heading: string;
-  img: string;
-  createdAt: number;
-  description: string;
+  id: number
+  heading: string
+  img: string
+  createdAt: number
+  description: string
   content: CareerItemContentType[]
   preview: CareerItemPreviewType
 }
 
 const initialState = {
+  customers: [] as CustomerType[],
   prices: [] as PriceItemType[],
   reviews: [] as ReviewsItemType[],
   news: [] as InformationCardType[],

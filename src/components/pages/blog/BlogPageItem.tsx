@@ -1,14 +1,10 @@
-import { Link, useParams } from "react-router-dom";
-import { NotFoundPage } from "../notFound/NotFoundPage";
+import { useParams } from "react-router-dom";
 import cn from 'classnames';
-import { useEffect } from "react";
 import { useSelector } from 'react-redux';
 import { BlogItemContentType } from "../../../redux/reducers/static";
 import { formatDate } from './../../../helpers/formatDate';
 import { InformationPageBase } from './../../ui/informationPageBase/InformationPageBase';
-import arrowLeft from './../../../assets/img/icons8-arrowLeft.png';
 import { selectBlogItems } from "../../../redux/selectors";
-import { ArrowBack } from "../../ui/ArrowBack";
 import { InformationItemPageBase } from "../../ui/InformationItemPageBase";
 
 const isContentItemString = (i: BlogItemContentType): i is string => {

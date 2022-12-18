@@ -6,7 +6,7 @@ type Props = {
   onClick?: () => void
 }
 
-const items = [
+export const navItems = [
   {
     name: 'Pricing',
     link: 'pricing'
@@ -30,7 +30,7 @@ const items = [
 ];
 
 export const Nav: React.FC<Props> = ({ className, onClick }) => {
-  const Items = items.map((i, index) => <Item onClick={onClick} {...i} key={index} />)
+  const Items = navItems.map((i, index) => <Item onClick={onClick} {...i} key={index} />)
 
   return <nav className={cn('flex title gap-x-6 lg:gap-x-9 xl:gap-x-12', className)}>
     {Items}

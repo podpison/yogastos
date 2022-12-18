@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Button } from "../../../../ui/Button";
 
 export const TryForFree: React.FC = () => {
@@ -5,7 +6,9 @@ export const TryForFree: React.FC = () => {
     <div className='flexCol items-center gap-y-3 text-white sm:gap-y-5 md:gap-y-6 lg:max-w-[80%] lg:mx-auto xl:max-w-[75%]'>
       <h2 className='text-center'>Digital Branding & Product Design Services by a Global Leader.</h2>
       <p className='textJustify text1'>With our advanced technology, you can enjoy a safe and private Internet experience without compromising the performance of your computer and mobile devices. </p>
-      <Button className="bg-white text-black hover:bg-white hover:bg-[rgba(255,_255,_255,_0.9)]" xsmWFit>Try for free</Button>
+      <Link to='/contactUs?try=true'>
+        <Button className="bg-white text-black hover:bg-white hover:bg-[rgba(255,_255,_255,_0.9)]" xsmWFit>Try for free</Button>
+      </Link>
     </div>
   </div>
 };

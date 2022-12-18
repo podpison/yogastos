@@ -89,4 +89,7 @@
   .bigText {
     @apply font-bold text-start text-[2.7rem] text-darkBlue leading-tight sm:leading-tight sm:text-5xl lg:text-6xl lg:leading-tight xl:text-7xl xl:leading-tight
   }
+  .skeleton {
+    @apply bg-gray-300 rounded-lg animate-pulse dark:bg-gray-700
+  }
 }

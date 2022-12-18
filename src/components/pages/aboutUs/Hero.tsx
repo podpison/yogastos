@@ -1,6 +1,7 @@
 import { Button } from '../../ui/Button';
 import { HeroBase } from './../../ui/HeroBase';
 import hero from './../../../assets/img/pages/aboutUs/hero.webp';
+import { HashLink } from 'react-router-hash-link';
 
 export const Hero: React.FC = () => {
   return <HeroBase
@@ -9,6 +10,11 @@ export const Hero: React.FC = () => {
     heroImg={hero}
     decor
   >
-    <Button xsmWFit>Corporate Fact Sheet</Button>
+    <HashLink
+      to="#news"
+      smooth
+    >
+      <Button xsmWFit>Corporate Fact Sheet</Button>
+    </HashLink>
   </HeroBase>
 };

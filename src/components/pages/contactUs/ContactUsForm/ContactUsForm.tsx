@@ -21,13 +21,24 @@ export type ContactUsFormValuesType = {
 
 export const ContactUsForm: React.FC = () => {
   const [searchParams] = useSearchParams();
-  let vacancyName = searchParams.get('name');
+
+  let howCanWeHelpYouIV = '';
+  if (searchParams.get('vacanyName')) {
+    howCanWeHelpYouIV = `Hello! I'd like to apply to the ${searchParams.get('vacanyName')} vacancy. My skills are...`;
+  } else if (searchParams.get('try')) {
+    howCanWeHelpYouIV = "Hello! I'd like to try your service. I want ..."
+  } else if (searchParams.get('buy')) {
+    howCanWeHelpYouIV = `Hello! I'd like to buy your ${searchParams.get('buy')} subscription. Here's my contacts...`
+  } else if (searchParams.get('helpMeChoose')) {
+    howCanWeHelpYouIV = 'Hello! Can you provide me more information about your subscriptions? I want to know more'
+  }
+
   let initialValues = useMemo(() => {
     return {
       email: '',
-      howCanWeHelpYou: vacancyName ? `Hello! I'd like to apply to the ${vacancyName} vacancy. My skills are...` : ''
+      howCanWeHelpYou: howCanWeHelpYouIV
     }
-  }, [vacancyName])
+  }, [howCanWeHelpYouIV])
 
   return <section className='relative pt-8 pb-7 sm:pt-10 sm:pb-9 md:pt-12 md:pb-11 lg:pt-14 lg:pb-13 xl:pt-16 xl:pb-14'>
     <FullBg />

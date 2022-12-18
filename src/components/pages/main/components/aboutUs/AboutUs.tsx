@@ -7,6 +7,7 @@ import img4 from './../../../../../assets/img/pages/main/abotUs/4.webp';
 import decor1 from './../../../../../assets/img/decor/1.svg';
 import decor2 from './../../../../../assets/img/pages/main/decor/1.svg';
 import { TryForFree } from "./TryForFree";
+import { Link } from "react-router-dom";
 
 export const AboutUs: React.FC = () => {
   return <section className="relative mt-28 py-14 md:mt-32 md:py-16 lg:mt-36 lg:py-20 xl:mt-44 xl:py-28">
@@ -15,7 +16,9 @@ export const AboutUs: React.FC = () => {
       <div className="lg:my-auto">
         <h2 className="text-darkBlue leading-tight">Global leader in Design & Development</h2>
         <p className="mt-4 text-lg text-justify sm:text-left">The company`s comprehensive security portfolio includes leading endpoint protection and a number of specialized security solutions and services to fight sophisticated and evolving digital threats. Over 400 million users are protected by Yogi technologies and we help 250,000 corporate clients protect what matters most to them.</p>
-        <Button className="bg-orange mt-6" arrow xsmWFit>Learn more</Button>
+        <Link to='/aboutUs'>
+          <Button className="bg-orange mt-6" arrow xsmWFit>Learn more</Button>
+        </Link>
       </div>
       <div className="grid grid-cols-1 gap-4 w-full ml-auto sm:grid-cols-2 sm:gap-y-8 xl:gap-10">
         <img className="w-full ml-auto sm:w-auto" src={img1} alt='man is working' />

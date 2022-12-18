@@ -1,9 +1,9 @@
-import { useEffect } from "react";
 import { FullBg } from './../FullBg';
 import { NotFoundPage } from './../../pages/notFound/NotFoundPage';
 import { RecentItems } from "./RecentItems";
 import { InformationCardType } from "../../../redux/reducers/static";
 import cn from 'classnames';
+import { useScrollTop } from "../../../hooks/useScrollTop";
 
 type Props = {
   heading: string
@@ -16,15 +16,7 @@ type Props = {
 }
 
 export const InformationPageBase: React.FC<Props> = ({ heading, headingDescription, hero, isNotFoundPage, children, recentItems, heroSign }) => {
-
-  useEffect(() => {
-    setTimeout(() => {
-      document.querySelector('body')?.scroll({
-        top: 0,
-        behavior: 'smooth'
-      })
-    }, 20)
-  }, []);
+  useScrollTop();
 
   if (isNotFoundPage) return <NotFoundPage />
 

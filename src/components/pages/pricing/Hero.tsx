@@ -8,6 +8,6 @@ export const Hero: React.FC = () => {
     heroImg={hero}
     isChildrenToBottom={false}
   >
-    <p className='bg-orange w-fit text-white font-bold rounded-[10px] py-2.5 px-4 sm:text-lg md:py-3.5 px-8 min-lg:text-justify xl:px-14'>Monthly Assistance - Get up to 40% off</p>
+    <p className='bg-orange w-fit text-white font-bold rounded-[10px] py-2.5 px-4 sm:text-lg md:py-3.5 md:px-8 min-lg:text-justify xl:px-14'>Monthly Assistance - Get up to 40% off</p>
   </HeroBase>
 };

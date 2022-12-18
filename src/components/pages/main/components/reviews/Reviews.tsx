@@ -3,6 +3,7 @@ import { FullBg } from './../../../../ui/FullBg';
 import { Review } from './Review';
 import { useSelector } from 'react-redux';
 import { selectReviewItems } from '../../../../../redux/selectors';
+import { Skeleton } from '../../../../ui/Skeleton';
 
 export const Reviews: React.FC = () => {
   useStaticItems('reviews');
@@ -16,7 +17,7 @@ export const Reviews: React.FC = () => {
       <h2 className='text-darkBlue'>Our Happy Customers</h2>
     </div>
     <div className='mainPageGridContainer'>
-      {Reviews}
+      <Skeleton items={Reviews} />
     </div>
   </section>
 };

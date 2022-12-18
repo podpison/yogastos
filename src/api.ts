@@ -29,13 +29,3 @@ export const customersAPI = {
     return !!docRef;
   }
 }
-
-export const collectionsAPI = {
-  add: async (data: Array<object>) => {
-    for (let item of data) {
-      //@ts-ignore
-      let a = await addDoc(collection(fs, "career"), item);
-      console.log(a)
-    }
-  }
-}

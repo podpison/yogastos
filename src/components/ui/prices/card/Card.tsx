@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { PriceItemType } from "../../../../redux/reducers/static";
 import { Button } from "../../Button";
 import { Advantage } from "./Advantage";
@@ -19,6 +20,8 @@ export const Card: React.FC<Props> = ({ advantages, description, name, price }) 
         {Advantages}
       </ul>
     </div>
-    <Button className='mt-7 py-4 px-6 w-full justify-center lg:py-7'>Buy now</Button>
+    <Link to={`/contactUs?buy=${name}`}>
+      <Button className='mt-7 py-4 px-6 w-full justify-center lg:py-7'>Buy now</Button>
+    </Link>
   </div>
 };

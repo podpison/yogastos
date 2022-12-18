@@ -54,7 +54,7 @@ export const CareersItemPage: React.FC = () => {
         <Item {...staticItems[0]} />
         <Item {...staticItems[1]} disableDots />
       </InformationItemPageBase>
-      <Link to={`/contactUs?name=${currentItem?.heading}`}>
+      <Link to={`/contactUs?vacanyName=${currentItem?.heading}`}>
         <Button className='mt-8 mx-auto sm:mt-12 md:mt-16 lg:mt-24 xl:mt-28' isDarkBlue xsmWFit>Apply now</Button>
       </Link>
     </div>

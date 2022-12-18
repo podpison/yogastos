@@ -1,6 +1,7 @@
 import { Button } from '../../../ui/Button';
 import hero from './../../../../assets/img/pages/main/hero.webp';
 import { HeroBase } from '../../../ui/HeroBase';
+import { Link } from 'react-router-dom';
 
 export const Hero: React.FC = () => {
   return <HeroBase
@@ -9,7 +10,9 @@ export const Hero: React.FC = () => {
     heroImg={hero}
   >
     <div className='flexCol gap-y-2 sm:flex-row sm:items-center sm:gap-x-5'>
-      <Button className='bg-orange' arrow xsmWFit>Try for free</Button>
+      <Link to='/contactUs?try=true'>
+        <Button className='bg-orange' arrow xsmWFit>Try for free</Button>
+      </Link>
       <p className='title2 text-orange'>* No credit card required</p>
     </div>
   </HeroBase>
