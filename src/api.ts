@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { addDoc, collection, collection as fbCollection, getDocs, getFirestore } from "firebase/firestore";
+import { addDoc, collection, collection as fbCollection, getDocs, getFirestore, initializeFirestore } from "firebase/firestore";
 import { ContactUsFormValuesType } from "./components/pages/contactUs/ContactUsForm/ContactUsForm";
 
 const firebaseConfig = {
@@ -12,8 +12,10 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
-const app = initializeApp(firebaseConfig);
-const fs = getFirestore(app);
+const app = initializeApp(firebaseConfig)
+const fs = initializeFirestore(app, {
+  experimentalForceLongPolling: true
+})
 
 
 export const itemsAPI = {
